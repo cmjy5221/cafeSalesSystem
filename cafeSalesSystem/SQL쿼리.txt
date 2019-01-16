@@ -1,0 +1,133 @@
+create table staff(
+s_no number(4) primary key,
+s_name varchar2(10) not null,
+s_phone varchar2(20) not null,
+s_ID varchar2(20) not null,
+s_PW varchar2(20) not null,
+s_job varchar2(20) not null)
+;
+
+drop table staff;
+drop sequence staff_seq;
+select * from staff;
+select * from staff where s_id='1';
+
+create sequence staff_seq
+start with 1
+increment by 1;
+
+create table customer(
+c_no number(6) primary key,
+c_name varchar2(20),
+c_phone varchar2(12),
+c_point number(3),
+c_regdate date);
+
+insert into customer values(0,null,null,null,null);
+
+update customer set c_name=' ' where c_no=0;
+commit;
+drop table customer;
+select * from customer;
+select * from customer where c_name like '%?%'; 
+delete from customer where c_no=126;
+
+create sequence customer_seq
+start with 1
+increment by 1;
+
+drop sequence customer_seq;
+
+create table goods(
+g_no number(6) primary key,
+g_name varchar2(20) ,
+g_price number(20)) ;
+
+insert into goods values(goods_menud_seq.nextval,'메뉴없음',0);
+select * from goods;
+create sequence goods_seq
+start with 1
+maxvalue 25
+increment by 1
+;
+create sequence goods_menuetc_seq
+start with 26
+maxvalue 50
+increment by 1
+;
+create sequence goods_menud_seq
+start with 51
+maxvalue 75
+increment by 1
+;
+drop sequence goods_menud_seq;
+
+select * from goods;
+delete from goods;
+drop table goods;
+commit;
+
+create table purchase(
+no number(6) primary key,
+c_no number(6) not null references customer(c_no),
+sdate date not null,
+total number(20) not null,
+amount number(20) not null,
+way varchar2(10) not null,
+rmoney number(20) not null,
+cmoney number(20) not null,
+tmoney number(20) not null
+);
+commit;
+update purchase set sdate=sdate+1 where amount=1;
+select * from purchase where sdate>=((to_date('2018-08-15'))+1);
+select to_char(sdate,'mm'),sum(tmoney) from purchase group by to_char(sdate,'mm');
+drop table purchase;
+delete from purchase;
+
+select sdate from purchase where sdate>='2018/08/14';
+
+create table coffer(
+sijae number(10) not null,
+nowdate date not null);
+drop table coffer;
+insert into coffer values (0,sysdate);
+select * from coffer;
+delete from coffer;
+
+insert into coffer values(100000,sysdate);
+update coffer set sijae=sijae+2000,nowdate=sysdate;
+
+create sequence purchase_seq
+start with 1
+increment by 1;
+
+create table menuorder(
+m_code number(10) primary key,
+m_name varchar2(20) not null,
+m_price number(10) not null,
+m_amount number(10) not null,
+m_allprice number(10) not null,
+m_hotorice varchar2(10) not null,
+m_takeout varchar2(10) not null);
+
+create sequence menuorder_seq
+start with 1
+increment by 1;
+
+create sequence temp_seq
+start with 1
+increment by 1;
+drop sequence temp_seq;
+
+select * from (select to_date(sdate,'yyyy-mm-dd'),sum(tmoney) from purchase group by to_date(sdate,'yyyy-mm-dd') order by to_date(sdate,'yyyy-mm-dd') desc);
+
+select * from purchase;
+select * from menuorder;
+delete from menuorder;
+drop table temp;
+select * from menuorder where m_hotorice='Hot' and m_takeout='true';
+commit;
+update temp set m_amount=m_amount+1,m_allprice=m_amount*m_price where m_name='아메리카노';
+insert into menuorder values (menuorder_seq.nextval,'a',100,1,100,'a','a');
+select sum(m_amount),sum(m_allprice) from menuorder;
