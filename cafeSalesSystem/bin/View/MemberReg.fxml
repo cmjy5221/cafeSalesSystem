@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+<!-- 고객회원등록창 -->
+<VBox xmlns:fx="http://javafx.com/fxml" prefHeight="150"
+	prefWidth="200">
+	<padding>
+		<Insets top="10" left="10" right="10" bottom="10" />
+	</padding>
+	<children>
+		<HBox spacing="10">
+			<padding>
+				<Insets top="10" left="10" right="10" bottom="10" />
+			</padding>
+			<children>
+				<Label text="이   름" />
+				<TextField fx:id="txtMName" prefWidth="100" />
+			</children>
+		</HBox>
+		<HBox spacing="10">
+			<padding>
+				<Insets top="10" left="10" right="10" bottom="10" />
+			</padding>
+			<children>
+				<Label text="연락처" />
+				<TextField fx:id="txtPhone" prefWidth="100" />
+			</children>
+		</HBox>
+		<HBox spacing="10" alignment="CENTER">
+			<padding>
+				<Insets top="10" left="10" right="10" bottom="10" />
+			</padding>
+			<children>
+				<Button fx:id="btnOk" text="등록" />
+				<Button fx:id="btnExit" text="종료" />
+			</children>
+		</HBox>
+	</children>
+</VBox>
+

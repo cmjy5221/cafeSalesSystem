@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.chart.ValueAxis?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.web.WebView?>
+<!-- 판매관리창 -->
+<VBox xmlns:fx="http://javafx.com/fxml"
+	fx:controller="Controller.WorkPageController" spacing="10">
+	<HBox spacing="10">
+		<children>
+			<Label text="현재날짜 : " />
+			<Label fx:id="lbTime" />
+			<Label text="직책 : " />
+			<Label fx:id="lbSName" />
+			<Button text="날씨" fx:id="btnWheather" />
+			<Button fx:id="btnReg" text="직원등록" />
+		</children>
+	</HBox>
+	<HBox spacing="10">
+		<children>
+			<VBox>
+				<children>
+					<TableView fx:id="tvMenu" />
+					<VBox>
+						<HBox spacing="10">
+							<children>
+								<Label text="총수량 : " />
+								<Label fx:id="lbAmount" />
+								<Label text="총결제금액 : " />
+								<Label fx:id="lbTotal" />
+							</children>
+						</HBox>
+						<children>
+							<HBox spacing="10">
+								<children>
+									<VBox spacing="10">
+										<children>
+											<HBox spacing="10">
+												<children>
+													<Button text="취소" fx:id="btnOneCancel" />
+													<Button text="전체취소" fx:id="btnCancel" />
+													<Label text="수량" />
+													<Button text="+" fx:id="btnPlus" />
+													<Button text="-" fx:id="btnMinus" />
+												</children>
+											</HBox>
+											<HBox spacing="10">
+												<children>
+													<VBox prefWidth="150" maxWidth="150">
+														<children>
+															<HBox  spacing="10">
+																<children>
+																	<Label text="받은금액" />
+																	<Label fx:id="lbRiMoney" />
+																</children>
+															</HBox>
+															<HBox spacing="10">
+																<children>
+																	<Label text="할인금액" />
+																	<Label fx:id="lbDiscount" />
+																</children>
+															</HBox>
+															<HBox spacing="10">
+																<children>
+																	<Label text="결제금액" />
+																	<Label fx:id="lbFinal" />
+																</children>
+															</HBox>
+															<HBox spacing="10">
+																<children>
+																	<Label text="거스름돈" />
+																	<Label fx:id="lbChange" />
+																</children>
+															</HBox>
+														</children>
+													</VBox>
+													<VBox spacing="10">
+														<children>
+															<Label fx:id="lbInputMoney" />
+															<HBox spacing="5">
+																<children>
+																	<Button text="1" fx:id="btnOne" userData="1" />
+																	<Button text="2" fx:id="btnTwo" userData="2" />
+																	<Button text="3" fx:id="btnThree" userData="3" />
+																	<Button text="백" fx:id="btn100" userData="00" />
+																</children>
+															</HBox>
+															<HBox spacing="5">
+																<children>
+																	<Button text="4" fx:id="btnFour" userData="4" />
+																	<Button text="5" fx:id="btnFive" userData="5" />
+																	<Button text="6" fx:id="btnSix" userData="6" />
+																	<Button text="천" fx:id="btn1000" userData="000" />
+																</children>
+															</HBox>
+															<HBox spacing="5">
+																<children>
+																	<Button text="7" fx:id="btnSeven" userData="7" />
+																	<Button text="8" fx:id="btnEight" userData="8" />
+																	<Button text="9" fx:id="btnNine" userData="9" />
+																	<Button text="만" fx:id="btn10000"
+																		userData="0000" />
+																</children>
+															</HBox>
+															<HBox spacing="5">
+																<children>
+																	<Button text="취소" fx:id="btnNumClear" />
+																	<Button text="0" fx:id="btnZero" userData="0" />
+																	<Button text="입력" fx:id="btnNumEnter" />
+																</children>
+															</HBox>
+														</children>
+													</VBox>
+												</children>
+											</HBox>
+										</children>
+									</VBox>
+									<VBox>
+										<children>
+											<Button text="현금결제" fx:id="btnWon" prefHeight="90" prefWidth="200"/>
+											<Button text="카드결제" fx:id="btnCard" prefHeight="90" prefWidth="200"/>
+											<Button text="매출조회" fx:id="btnSales" prefHeight="90" prefWidth="200"/>
+										</children>
+									</VBox>
+								</children>
+							</HBox>
+						</children>
+					</VBox>
+				</children>
+			</VBox>
+			<VBox>
+				<children>
+					<HBox>
+						<children>
+							<VBox>
+								<children>
+									<HBox spacing="10">
+										<children>
+											<Label text="회원이름" />
+											<TextField fx:id="txtCName" />
+											<Button fx:id="btnSearch" text="검색" />
+											<Button fx:id="btnTotal" text="전체" />
+											<Button fx:id="btnRegMem" text="등록" />
+											<Button fx:id="btnDelete" text="삭제" />
+										</children>
+									</HBox>
+									<TableView fx:id="tvMem" />
+								</children>
+							</VBox>
+							<VBox>
+								<children>
+									<HBox>
+										<Label text="포인트 적립" />
+										<CheckBox fx:id="chkPointAcc" />
+									</HBox>
+									<HBox>
+										<Label text="포인트 사용" />
+										<CheckBox fx:id="chkPointUse" />
+									</HBox>
+								</children>
+							</VBox>
+						</children>
+					</HBox>
+					<VBox spacing="10">
+						<children>
+							<TabPane>
+								<tabs>
+									<Tab text="커피" closable="false">
+										<content>
+											<VBox>
+												<children>
+													<HBox spacing="10">
+														<children>
+															<Button fx:id="btnCMenu1" prefHeight="40"
+																minWidth="85" />
+															<Button fx:id="btnCMenu2" prefHeight="40"
+																minWidth="85" />
+															<Button fx:id="btnCMenu3" prefHeight="40"
+																minWidth="85" />
+															<Button fx:id="btnCMenu4" prefHeight="40"
+																minWidth="85" />
+															<Button fx:id="btnCMenu5" prefHeight="40"
+																minWidth="85" />
+														</children>
+													</HBox>
+													<HBox spacing="10">
+														<children>
+															<Button fx:id="btnCMenu6" prefHeight="40"
+																minWidth="85" />
+															<Button fx:id="btnCMenu7" prefHeight="40"
+																minWidth="85" />
+															<Button fx:id="btnCMenu8" prefHeight="40"
+																minWidth="85" />
+															<Button fx:id="btnCMenu9" prefHeight="40"
+																minWidth="85" />
+															<Button fx:id="btnCMenu10" prefHeight="40"
+																minWidth="85" />
+														</children>
+													</HBox>
+													<HBox spacing="10">
+														<children>
+															<Button fx:id="btnCMenu11" prefHeight="40"
+																minWidth="85" />
+															<Button fx:id="btnCMenu12" prefHeight="40"
+																minWidth="85" />
+															<Button fx:id="btnCMenu13" prefHeight="40"
+																minWidth="85" />
+															<Button fx:id="btnCMenu14" prefHeight="40"
+																minWidth="85" />
+															<Button fx:id="btnCMenu15" prefHeight="40"
+																minWidth="85" />
+														</children>
+													</HBox>
+													<HBox spacing="10">
+														<children>
+															<Button fx:id="btnCMenu16" prefHeight="40"
+																minWidth="85" />
+															<Button fx:id="btnCMenu17" prefHeight="40"
+																minWidth="85" />
+															<Button fx:id="btnCMenu18" prefHeight="40"
+																minWidth="85" />
+															<Button fx:id="btnCMenu19" prefHeight="40"
+																minWidth="85" />
+															<Button fx:id="btnCMenu20" prefHeight="40"
+																minWidth="85" />
+														</children>
+													</HBox>
+													<HBox spacing="10">
+														<children>
+															<Button fx:id="btnCMenu21" prefHeight="40"
+																minWidth="85" />
+															<Button fx:id="btnCMenu22" prefHeight="40"
+																minWidth="85" />
+															<Button fx:id="btnCMenu23" prefHeight="40"
+																minWidth="85" />
+															<Button fx:id="btnCMenu24" prefHeight="40"
+																minWidth="85" />
+															<Button fx:id="btnCMenu25" prefHeight="40"
+																minWidth="85" />
+														</children>
+													</HBox>
+												</children>
+											</VBox>
+										</content>
+									</Tab>
+									<Tab text="기타음료" closable="false">
+										<content>
+											<VBox>
+												<children>
+													<HBox spacing="10">
+														<children>
+															<Button fx:id="btnEtcMenu1" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnEtcMenu2" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnEtcMenu3" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnEtcMenu4" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnEtcMenu5" prefHeight="40"
+																minWidth="85" />
+														</children>
+													</HBox>
+													<HBox spacing="10">
+														<children>
+															<Button fx:id="btnEtcMenu6" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnEtcMenu7" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnEtcMenu8" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnEtcMenu9" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnEtcMenu10" prefHeight="40"
+																minWidth="85"/>
+														</children>
+													</HBox>
+													<HBox spacing="10">
+														<children>
+															<Button fx:id="btnEtcMenu11" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnEtcMenu12" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnEtcMenu13" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnEtcMenu14" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnEtcMenu15" prefHeight="40"
+																minWidth="85"/>
+														</children>
+													</HBox>
+													<HBox spacing="10">
+														<children>
+															<Button fx:id="btnEtcMenu16" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnEtcMenu17" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnEtcMenu18" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnEtcMenu19" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnEtcMenu20" prefHeight="40"
+																minWidth="85"/>
+														</children>
+													</HBox>
+													<HBox spacing="10">
+														<children>
+															<Button fx:id="btnEtcMenu21" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnEtcMenu22" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnEtcMenu23" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnEtcMenu24" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnEtcMenu25" prefHeight="40"
+																minWidth="85"/>
+														</children>
+													</HBox>
+												</children>
+											</VBox>
+										</content>
+									</Tab>
+									<Tab text="디저트" closable="false">
+										<content>
+											<VBox>
+												<children>
+													<HBox spacing="10">
+														<children>
+															<Button fx:id="btnDMenu1" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnDMenu2" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnDMenu3" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnDMenu4" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnDMenu5" prefHeight="40"
+																minWidth="85"/>
+														</children>
+													</HBox>
+													<HBox spacing="10">
+														<children>
+															<Button fx:id="btnDMenu6" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnDMenu7" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnDMenu8" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnDMenu9" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnDMenu10" prefHeight="40"
+																minWidth="85"/>
+														</children>
+													</HBox>
+													<HBox spacing="10">
+														<children>
+															<Button fx:id="btnDMenu11" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnDMenu12" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnDMenu13" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnDMenu14" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnDMenu15" prefHeight="40"
+																minWidth="85"/>
+														</children>
+													</HBox>
+													<HBox spacing="10">
+														<children>
+															<Button fx:id="btnDMenu16" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnDMenu17" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnDMenu18" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnDMenu19" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnDMenu20" prefHeight="40"
+																minWidth="85"/>
+														</children>
+													</HBox>
+													<HBox spacing="10">
+														<children>
+															<Button fx:id="btnDMenu21" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnDMenu22" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnDMenu23" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnDMenu24" prefHeight="40"
+																minWidth="85"/>
+															<Button fx:id="btnDMenu25" prefHeight="40"
+																minWidth="85"/>
+														</children>
+													</HBox>
+												</children>
+											</VBox>
+										</content>
+									</Tab>
+								</tabs>
+							</TabPane>
+						</children>
+					</VBox>
+					<HBox spacing="10">
+						<fx:define>
+							<ToggleGroup fx:id="HotIceGroup" />
+						</fx:define>
+						<children>
+							<Label text="Hot" />
+							<RadioButton fx:id="rbHot" userData="Hot"
+								toggleGroup="$HotIceGroup" />
+							<Label text="Ice" />
+							<RadioButton fx:id="rbIce" userData="Ice"
+								toggleGroup="$HotIceGroup" />
+							<Label text="테이크아웃" />
+							<CheckBox fx:id="chkTOut" userData="Y" />
+							<Label text="메뉴 수정" />
+							<CheckBox fx:id="chkRevise" />
+						</children>
+					</HBox>
+				</children>
+			</VBox>
+		</children>
+	</HBox>
+</VBox>
+

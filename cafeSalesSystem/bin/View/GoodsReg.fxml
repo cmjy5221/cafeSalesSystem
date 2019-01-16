@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<!-- 상품 등록창 -->
+<VBox xmlns:fx="http://javafx.com/fxml" >
+	<children>
+		<HBox spacing="10">
+			<children>
+				<Label text="상품명" />
+				<TextField fx:id="txtPName" />
+			</children>
+		</HBox>
+		<HBox spacing="10">
+			<children>
+				<Label text="단  가" />
+				<TextField fx:id="txtPPrice" />
+			</children>
+		</HBox>
+		<HBox spacing="10">
+			<children>
+				<Button fx:id="btnOk" text="확인" />
+				<Button fx:id="btnExit" text="종료" />
+			</children>
+		</HBox>
+	</children>
+</VBox>
+

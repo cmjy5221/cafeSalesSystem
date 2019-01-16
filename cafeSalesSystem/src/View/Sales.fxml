@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<!-- 매출조회창 -->
+<VBox xmlns:fx="http://javafx.com/fxml"
+	fx:controller="Controller.SalesController" prefHeight="800"
+	prefWidth="800">
+	<children>
+		<HBox>
+			<DatePicker fx:id="dpDate" />
+			<Button fx:id="btnCheck" text="조회" />
+			<Button fx:id="btnTotal" text="전체" />
+			<Button fx:id="btnDir" text="파일저장경로" />
+			<TextField fx:id="txtDir" promptText="파일경로설정" />
+			<Button fx:id="btnExcel" text="엑셀파일저장" />
+			<Button fx:id="btnPDF" text="PDF파일저장" />
+		</HBox>
+		<HBox>
+			<Label text="현재시재 : " />
+			<Label fx:id="lbNowSijae" />
+		</HBox>
+		<TableView fx:id="tvSales" />
+		<BarChart fx:id="bcSales">
+			<xAxis>
+				<CategoryAxis fx:id="xAxixs" />
+			</xAxis>
+			<yAxis>
+				<NumberAxis fx:id="yAxixs" />
+			</yAxis>
+		</BarChart>
+	</children>
+</VBox>
+
